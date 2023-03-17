@@ -1,7 +1,7 @@
 function getUserData() {
   const username = document.getElementById("username").value;
   const url = `https://api.spotify.com/v1/users/${username}`;
-  const accessToken = "BQCSOxa_oirAauvxMQqUJvVuopP6uhYsk3f39Mp0Iugr8CYEk-7ZexBsv8vrKltSdjxApMK1UvzcSWZbybBCAFmDXSK8opTdJJNkj9HCsLS9UocteaG1fodKP_5Dm5X5Cry-N5EUbKe9SGKOJ2PnoRqFTLGboyX5aZb5Tz6nQlW6f8rYvKEhT9cAvtUdcR4Ny-Lz";
+  const accessToken = "BQCnq8UF0iXIdqBc8m7veE16Rh4EPzPnN6uVoTmTo3gK7ze5iSMzI_9UsznFpKlgQuvbNFmN0YEfpprF0o3Ocw4swQ0sPqLYDC6LatBjX0NmWcPVcuO9AmsiBtn5AncgO0n0E0Xywr3b8mZq-D5KrUree19R-jwAQn6Qc9rD-bLoTWbehjKxj6kIRc6cGLX_MiG_";
 
   fetch(url, {
     headers: {
@@ -21,14 +21,18 @@ function getUserData() {
     // Do something with the user data
     console.log(data);
     let name = data.display_name;
+    let nbFollowers = data.followers.total;
     document.querySelector('#username2').textContent = name;
-    console.log(name);
+    document.querySelector('#nbfollowers').textContent = nbFollowers;
+    console.log(name + ' has' + nbFollowers + ' followers.');
   })
   .catch(error => {
     console.log('Error:', error);
     if (error.message === "User not found") {
+      document.querySelector('#searchbtn').classList.remove('bg-[#1ed760]');
+      document.querySelector('#searchbtn').classList.add('bg-red-400');
+      document.querySelector('#username').classList.add('border-red-400', 'border-2');
       document.querySelector('#searchbtn').textContent = "Error";
-      document.querySelector('#searchbtn').classList.add('bg-[#FF0000]');
     }
   });
 }
