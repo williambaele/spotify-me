@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Spotify Me</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔊</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#191414]">
   <div class="mx-auto flex container justify-center my-10">
-    <div class="flex-col flex">
-
-      <h1 class="text-4xl font-medium text-white">Spotify <span class="text-[#1ed760]">Me</span></h1>
-      <form class="flex">
-        <input type="text" id="username" name="username">
-        <button type="button" onclick="getUserData()">Get User Data</button>
+    <div class="flex-col flex w-full px-4 md:px-0 md:w-1/2">
+      <h1 class="text-6xl font-medium text-white mt-20 mb-16 text-center">Spotify <span class="text-[#1ed760]">Me</span></h1>
+      <form class="flex grid grid-cols-4 gap-3 w-full">
+        <input type="text" id="username" name="username" class="col-span-3 bg-white rounded-md py-1.5 pl-3" placeholder="Your username">
+        <button type="button" id="searchbtn" class="col-span-1 bg-[#1ed760] hover:bg-[#35db70] rounded-md font-medium text-white" onclick="getUserData()">Search</button>
       </form>
       <h2 class="text-white text-lg" id="username2"></h2>
     </div>
