@@ -13,6 +13,9 @@ function getUserData() {
     // Do something with the user data, such as display it on the page
     console.log(data);
     console.log("User well loaded")
+    let name = data.display_name;
+    document.querySelector('#username2').textContent = name;
+    console.log(name);
   })
   .catch(error => console.error(error));
 }
